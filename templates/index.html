@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+{% block title %}
+  Home Page
+{% endblock  %}
+{% block body %}
+      <div class="container">
+        <form action="/" method="post">
+            <div class="mb-3 p-3">
+              <label for="exampleInputTitle" class="form-label ">Title</label>
+              <input type="text" class="form-control bg-opacity-10 " name="title" id="title" aria-describedby="TitleHelp">
+            </div>
+            <div class="mb-3 p-3">
+              <label for="exampleInputDescription" class="form-label">Description</label>
+              <input type="text" class="form-control bg-opacity-10 " id="desc" name="desc">
+            </div>
+            <button type="submit" class="btn btn-danger mb-2">Add</button>
+          </form>
+      </div>
+      <div class="container my-3 ">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sr. no.</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Time</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for todo in alltodo %}
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{todo.title}}</td>
+              <td>{{todo.desc}}</td>
+              <td>{{todo.time}}</td>
+              <td>
+                <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-success"><i class="bi bi-pencil-fill"></i></a>
+                <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-secondary"><i class="bi bi-trash3-fill"></i></a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table> 
+      </div>
+{% endblock body %}
+

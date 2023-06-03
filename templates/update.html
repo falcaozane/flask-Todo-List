@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update Task
+{% endblock %}
+{% block body %}
+
+    <h1 style="text-align: center;">Task Update</h1>
+      <div class="container">
+        <form action="/update/{{todo.sno}}" method="POST">
+            <div class="mb-3 p-3">
+              <label for="exampleInputTitle" class="form-label ">Title</label>
+              <input type="text" class="form-control bg-opacity-10 " value="{{todo.title}}" name="title" id="title" aria-describedby="TitleHelp" >
+            </div>
+            <div class="mb-3 p-3">
+              <label for="exampleInputDescription" class="form-label">Description</label>
+              <input type="text" class="form-control bg-opacity-10 " value="{{todo.desc}}" id="desc" name="desc" >
+            </div>
+            <button type="submit" class="btn btn-danger mb-2">Update</button>
+          </form>
+      </div>
+
+{% endblock body %}
